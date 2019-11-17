@@ -11,7 +11,7 @@ Methods like call(), and apply() can refer this to any object.
 
 ```javascript
 var obj = {
-  foo: function () { console.log(this.bar) },
+  foo: function () { console.log(this.bar) },  //In a method, this refers to the owner object.
   bar: 1
 };
 
@@ -34,5 +34,43 @@ someObject.someMethod()
 In this context, the someObject is the receiver, while the someMethod is the method. Compare that with a function invocation:
 someFunction(arg)
 Notice how there is no receiver. In JavaScript, functions are invoked without a receiver using the parens syntax (). The receiver is what separates a function from a method.
+
+
+this user case 
+
+1. this in a method :In an object method, this refers to the "owner" of the method.
+In the example on the top of this page, this refers to the person object
+
+```javascript
+var obj = {
+  foo: function () { console.log(this.bar) },  //In a method, this refers to the owner object.
+  bar: 1
+};
+
+```
+
+2. this alone :
+
+When used alone, the owner is the Global object, so this refers to the Global object.
+
+In a browser window the Global object is [object Window]:
+
+```javascript
+Example
+var x = this;
+```
+
+3. this in a Function (Default) :In a JavaScript function, the owner of the function is the default binding for this
+```javascript
+var x = 1;
+function test() {
+   console.log(this.x);
+}
+test();  // 1
+
+```
+
+
+
 
 
