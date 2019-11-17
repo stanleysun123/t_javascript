@@ -71,6 +71,53 @@ test();  // 1
 ```
 
 
+2. Global Scope vs local scope 
+
+In the JavaScript language there are two types of scopes:
+
+**Global Scope 
+**Local Scope
 
 
+**Global Scope 
+If you declare a variable outside of any function or curly brackets {} then it is in the global scope.
+A variable in the global scope is accessible anywhere in your program.
 
+```javascript
+
+var greeting = "Hello world!"; // global scope
+
+function myFunc() {
+  console.log(greeting);
+}
+
+myFunc(); // "Hello world"
+```
+
+**Local scope**
+In contrast to global scope, a variable available only in a specific part of your code is known as a local variable. It exists in a local scope. There are two ways to create local scope in JavaScript: function scope and block scope.
+
+```javascript
+
+function myFunc() {
+  var greeting = "Hello world!"; // global scope
+
+}
+
+console.log(greeting); //  ReferenceError: greeting is not defined
+
+```
+
+**Block scope**
+When you declare a variable between curly brackets {} with const or let it is only available within the block of those brackets. Hence the name block scope.
+
+```javascript
+{
+  let firstName = "William";
+  var lastName = "Vincent"; // global scope!
+  console.log(firstName + ' ' + lastName); // "William Vincent"
+}
+
+console.log(firstName); // ReferenceError: firstName is not defined
+console.log(lastName); // "Vincent"
+```
